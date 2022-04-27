@@ -15,6 +15,7 @@ const img = () => {
 		.pipe($.gp.if($.app.isProd, $.gp.imagemin($.app.imagemin)))
 		.pipe($.gulp.dest($.path.img.dest))
 		.pipe($.gulp.src($.path.img.svg))
+		.pipe($.gp.newer($.path.img.dest))
 		.pipe($.gulp.dest($.path.img.dest));
 };
 

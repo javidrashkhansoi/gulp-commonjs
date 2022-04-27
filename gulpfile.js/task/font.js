@@ -1,6 +1,6 @@
 // ? FONT Task
 const font = () => {
-	return $.gulp.src($.path.font.otf)
+	return $.gulp.src($.path.font.src)
 		.pipe($.gp.plumber({
 			errorHandler: $.gp.notify.onError(error => ({
 				title: "FONT",

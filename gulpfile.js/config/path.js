@@ -38,8 +38,7 @@ module.exports = {
 
 	// ? FONT
 	font: {
-		src: `${pathSrc}/font`,
-		otf: `${pathSrc}/font/*.otf`,
+		src: `${pathSrc}/font/*.{eot,otf,otc,ttc,woff,svg}`,
 		ttf: `${pathSrc}/font/*.ttf`,
 		woff2: `${pathSrc}/font/*.woff2`,
 		watch: `${pathSrc}/font/**/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}`,
