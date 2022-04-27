@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	@@include("chunk/header.html")
+
+	<h1 class="title">Main Page</h1>
+
+	@@loop("chunk/news-item.html", "../../gulpfile.js/data/news.json")
+
+	<div class="__image-ibg lazy-image">
+		<img data-src="./img/mario-clip-art-5.png" src="./img/1x1.webp" alt=".pipe(webpHtml()) section image" width="" height="">
+		<div class="lazy-image__preloader"></div>
+	</div>
+
+	<img src="@img/psycho-killer.svg" alt="Img section image" width="" height="">
+	<img src="@img/mario-clip-art-5.png" alt="Img section image" width="" height="">
+	<a href="">hello</a>
+
+	@@include("chunk/footer.html")
+	<script src="js/main.js"></script>
+</body>
+</html>

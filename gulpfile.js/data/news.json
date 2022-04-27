@@ -1,0 +1,14 @@
+[
+	{
+		"name": "First news",
+		"body": "First news text"
+	},
+	{
+		"name": "Second news",
+		"body": "Second news text"
+	},
+	{
+		"name": "Third news",
+		"body": "Third news text"
+	}
+]
