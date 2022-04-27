@@ -29,8 +29,30 @@
 	"@img": "${folder}/src/img",
 }
 ```
+#### *Пример использования плагина __Path Autocomplete__*
+В любой вложенности папок путь к картинке начинается с помощью `@img/`:
+1. HTML
+```html
+<img src="@img/logo.png" alt="Logo" width="150" height="50">
+```
+Получаем на выходе:
+```html
+<img src="img/logo.png" alt="Logo" width="150" height="50">
+```
+2. SCSS
+```scss
+body {
+	background: url("@img/bg.png") center / cover no-repeat;
+}
+```
+Получаем на выходе:
+```scss
+body {
+	background: url("../img/bg.png") center / cover no-repeat;
+}
+```
 
-## **Как начать изпользовать сборку?**
+## **Как начать использовать сборку?**
 Скачать [архив](https://github.com/javidrashkhansoi/gulp-2022/archive/refs/heads/main.zip) и разархивировать, либо в командной строке написать команду:
 ```bash
 git clone https://github.com/javidrashkhansoi/gulp-2022.git
@@ -122,7 +144,7 @@ gulp font
     - Создается файл *script.min.js* в пути назначения
 4. Изображения
     - Проверяется, новые ли изображения (кроме SVG файлов)
-    - Копируются в путь назначения (кроме SVG файлов)
+    - Копируются в путь назначения
     - Проверяется, новый ли SVG файл
     - Копируется в путь назначения
 ### *Как остановить работу в режиме разработчика?*
