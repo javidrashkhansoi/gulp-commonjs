@@ -187,6 +187,24 @@ npm run build
     - Проверяется, новые ли изображения (кроме SVG файлов)
     - Сжимаются
 
+### **Как определить, поддерживает ли браузер _.webp_ изображения?**
+Поддержка браузером _.webp_ изображений определяется следующим JavaScript кодом:
+```js
+function testWebp(cb) {
+	const webp = new Image();
+	webp.onload = webp.onerror = function () {
+		cb(web.height == 2);
+	};
+	webp.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+}
+
+testWebp(function (support) {
+	const isWebp = support === true ? "webp" : "no-webp";
+	document.documentElement.classList.add(isWebp);
+});
+```
+Если браузер поддерживает формат *.webp*, к тегу `<html>` добавится класс *webp*, а если нет, то класс *no-webp*
+
 ## **Из-за чего могут возникнуть ошибки?**
 - Не дайте проекту название *gulp*
 - Не назовите файлы кириллицей
