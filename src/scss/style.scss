@@ -1,29 +1,3 @@
-$fz: 30px;
+@use "sass:math";
 
-@mixin ph {
-	@media (max-width: 700px) {
-		@content;
-	}
-}
-
-* {
-	box-sizing: border-box;
-}
-
-body {
-	font-size: $fz;
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	line-height: 1.5;
-	background: url("../img/mario-clip-art-5.png");
-	@include ph {
-		color: #fff;
-		background-color: #000;
-	}
-	@include ph {
-		font-size: 14px;
-		font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
-	}
-}
-
-@import "block/news";
-@import "block/title";
+@import "block/block";

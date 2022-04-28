@@ -10,8 +10,8 @@ const scss = () => {
 			})),
 		}))
 		// .pipe($.gp.sassGlob())
-		.pipe($.gp.replace(/@img\//g, "../img/"))
 		.pipe($.gp.sass(require("sass"))())
+		.pipe($.gp.replace(/@img\//g, "../img/"))
 		// !.pipe($.gp.webpCss()) -- need to install the plugin gulp-webp-css
 		.pipe($.gp.if($.app.isProd, $.gp.webpcss($.app.webpcss)))
 		.pipe($.gp.if($.app.isProd, $.gp.autoprefixer()))
