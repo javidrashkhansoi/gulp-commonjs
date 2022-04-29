@@ -69,7 +69,12 @@ body {
 	background: url("../img/bg.png") center / cover no-repeat;
 }
 ```
-<strong style="color: #ff0000;">Внимание!</strong> *@font* работает после обработки шрифтов
+<style>
+	.red {
+		color: red;
+	}
+</style>
+<strong class="red">Внимание!</strong> *@font* работает после обработки шрифтов
 
 ## **Как начать использовать сборку?**
 Скачать [архив](https://github.com/javidrashkhansoi/gulp-2022/archive/refs/heads/main.zip) и разархивировать, либо в командной строке написать команду:
