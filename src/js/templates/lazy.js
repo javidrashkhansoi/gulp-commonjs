@@ -1,4 +1,4 @@
-const lazy = () => {
+export function lazy() {
 	const lazyImages = document.querySelectorAll(".lazy-image");
 
 	const lazyImageObserver = new IntersectionObserver((entries, observer) => {
@@ -35,5 +35,3 @@ const lazy = () => {
 		lazyImageObserver.observe(lazyImage);
 	});
 }
-
-module.exports = lazy;
