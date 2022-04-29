@@ -32,7 +32,7 @@
 }
 ```
 #### *Пример использования плагина __Path Autocomplete__*
-В любой вложенности папок путь к картинке пишем с `@img/`:
+В любой вложенности папок путь к картинке/шрифту пишем с `@img/`/`@font/`:
 1. HTML
 ```html
 <img src="@img/logo.png" alt="Logo" width="150" height="50">
@@ -65,11 +65,11 @@ body {
 	src: url("../font/Some-Font-Bold.woff2") format("woff2");
 }
 
-body {
-	background: url("../img/bg.png") center / cover no-repeat;
+.webp body {
+	background: url("../img/bg.webp") center / cover no-repeat;
 }
 ```
-**Внимание!** *@font* работает после обработки шрифтов
+**Внимание!** `@font` работает после обработки шрифтов
 
 ## **Как начать использовать сборку?**
 Скачать [архив](https://github.com/javidrashkhansoi/gulp-2022/archive/refs/heads/main.zip) и разархивировать, либо в командной строке написать команду:
