@@ -1,0 +1,20 @@
+const lockPadding = document.querySelectorAll(".lock-padding");
+
+function addPaddingRight() {
+	const lockPaddingValue = `${window.innerWidth - document.querySelector(".wrapper").offsetWidth}px`;
+	body.style.paddingRight = lockPaddingValue;
+	if (lockPadding.length) {
+		lockPadding.forEach(item => {
+			item.style.paddingRight = lockPaddingValue;
+		});
+	}
+}
+
+function removePaddingRight() {
+	body.style.paddingRight = "";
+	if (lockPadding.length) {
+		lockPadding.forEach(item => {
+			item.style.paddingRight = "";
+		});
+	}
+}

@@ -43,6 +43,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-shorthand": "^1.1.0",
     "gulp-size": "^4.0.1",
+    "gulp-svg2ttf": "^2.0.1",
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-version-number": "^0.2.4",
     "gulp-webp": "^4.0.1",

@@ -1,0 +1,177 @@
+let imageSlider = new Swiper(".image-slider", {
+	navigation: {
+		nextEl: ".swiper-button-next",
+		prevEl: ".swiper-button-prev",
+	},
+	pagination: {
+		el: ".swiper-pagination",
+		type: "bullets",
+		clickable: true,
+		dynamicBullets: true,
+		renderBullet: function (index, className) {
+			return `<span class="${className}">${index + 1}</span>`
+		},
+		// =========================================================================================================================================
+		// type: "fraction",
+		// renderFraction: function (currentClass, totalClass) {
+		// 	return `Image <span class="${currentClass}"></span> from <span class="${totalClass}"></span>`
+		// },
+		// =========================================================================================================================================
+		// type: "progressbar",
+	},
+	scrollbar: {
+		el: ".swiper-scrollbar",
+		draggable: true,
+	},
+	simulateTouch: true,
+	touchRation: 1,
+	touchAngle: 45,
+	grabCursor: false,
+	// slideToClickedSlide: false,
+	// hashNavigation: {
+	// 	watchState: true,
+	// },
+	// keyboard: {
+	// 	enabled: true,
+	// 	onlyInViewport: true,
+	// 	pageUpDown: true,
+	// },
+	// mousewheel: {
+	// 	sensivity: 1,
+	// 	eventsTarget: ".image-slider",
+	// },
+	autoHeight: false,
+	slidesPerView: 1,
+	watchOverflow: false,
+	// spaceBetween: 30,
+	slidesPerGroup: 1,
+	centeredSlides: false,
+	initialSlide: 0,
+	slidesPerColumn: 1,
+	loop: false,
+	// loopedSlides: 3,
+	freeMode: false,
+	// autoplay: {
+	// 	delay: 3000,
+	// 	stopOnLastSlide: true,
+	// 	disableOnInteraction: false,
+	// },
+	speed: 300,
+	direction: "horizontal",
+	effect: "slide",
+	// =========================================================================================================================================
+	// effect: "fade",
+	// fadeEffect: {
+	// 	crossFade: true,
+	// },
+	// =========================================================================================================================================
+	// effect: "flip",
+	// flipEffect: {
+	// 	slideShadows: true,
+	// 	limitRotation: true,
+	// },
+	// =========================================================================================================================================
+	// effect: "cube",
+	// cubeEffect: {
+	// 	slideShadows: true,
+	// 	shadow: true,
+	// 	shadowOffset: 20,
+	// 	shadowScale: 0.94,
+	// },
+	// =========================================================================================================================================
+	// effect: "coverflow",
+	// coverflowEffect: {
+	// 	rotate: 20,
+	// 	stretch: 50,
+	// 	slideShadows: true,
+	// },
+	// =========================================================================================================================================
+	// breakpoints: {
+	// 	320: {
+	// 		slidesPerView: 1,
+	// 	},
+	// 	480: {
+	// 		slidesPerView: 2,
+	// 	},
+	// 	992: {
+	// 		slidesPerView: 3,
+	// 	},
+	// },
+	preloadImages: false,
+	lazy: {
+		loadOnTransitionStart: false,
+		loadPrevNext: false,
+	},
+	watchSlidesProgress: true,
+	watchSlidesVisibility: true,
+	// zoom: {
+	// 	maxRatio: 5,
+	// 	minRation: 1,
+	// },
+	thumbs: {
+		swiper: {
+			el: ".image-slider-mini",
+			slidesPerView: 6,
+			preloadImages: false,
+			lazy: {
+				loadOnTransitionStart: false,
+				loadPrevNext: false,
+			},
+			watchSlidesProgress: true,
+			watchSlidesVisibility: true,
+			// spaceBetween: 30,
+			watchOverflow: true,
+		},
+	},
+	nested: false,
+	// controller: {
+	// 	control: variable,
+	// },
+	// observer: true,
+	// observerParents: true,
+	// observerSlideChildren: true,
+	parallax: false,
+	// virtual: {
+	// 	slides: (function () {
+	// 		let slide = [];
+	// 		for (let i = 0; i < 500; i++) {
+	// 			slide.push(`<div class="image-slider__text">Slide №${i + 1}</div>`);
+	// 		}
+	// 		return slide;
+	// 	}()),
+	// },
+	// a11y: {
+	// 	enabled: true,
+	// 	prevSlideMessage: "Previous slide",
+	// 	nextSlideMessage: "Next slide",
+	// 	firstSlideMessage: "This is the first slide",
+	// 	lastSlideMessage: "This is the the last slide",
+	// 	paginationBulletMessage: "Go to slide {{index}}",
+	// 	notificationClass: "swiper-notification",
+	// 	containerMessage: "",
+	// 	containerRoleDescriptionMessage: "",
+	// 	itemRoleDescriptionMessage: "",
+	// },
+	// on: {
+	// 	init: function () {
+	// 		console.log("Slider started!");
+	// 	},
+	// 	slideChange: function () {
+	// 		console.log("Slide changed!");
+	// 	},
+	// },
+});
+
+
+
+// imageSlider.update();
+// imageSlider.slideTo(2, 1000);
+// const slideBlock = document.querySelector(".image-slider");
+// slideBlock.addEventListener("mouseenter", () => {
+// 	imageSlider.params.autoplay.disableOnInteraction = false;
+// 	imageSlider.params.autoplay.delay = 500;
+// 	imageSlider.autoplay.start();
+// });
+// slideBlock.addEventListener("mouseleave", () => {
+// 	imageSlider.autoplay.stop();
+// });

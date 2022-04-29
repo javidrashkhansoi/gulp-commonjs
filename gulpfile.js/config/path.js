@@ -38,9 +38,11 @@ module.exports = {
 
 	// ? FONT
 	font: {
-		src: `${pathSrc}/font/*.{eot,otf,otc,ttc,woff,svg}`,
+		src: `${pathSrc}/font/*.{eot,otf,otc,ttc}`,
+		srcDest: `${pathSrc}/font`,
+		svg: `${pathSrc}/font/*.svg`,
 		ttf: `${pathSrc}/font/*.ttf`,
-		woff2: `${pathSrc}/font/*.woff2`,
+		woff: `${pathSrc}/font/*.{woff,woff2}`,
 		watch: `${pathSrc}/font/**/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}`,
 		dest: `${pathDest}/font`,
 	},

@@ -23,11 +23,11 @@ module.exports = {
 	imagemin: {
 		verbose: true,
 		progressive: true,
-		// svgoPlugins: [{
-		// 	removeViewBox: false,
-		// },],
-		// interlaced: true,
-		// optimizationLevel: 3,
+		svgoPlugins: [{
+			removeViewBox: false,
+		},],
+		interlaced: true,
+		optimizationLevel: 3,
 	},
 
 	// ? gulp-version-number
