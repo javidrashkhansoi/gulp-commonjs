@@ -12,6 +12,7 @@ const scss = () => {
 		// .pipe($.gp.sassGlob())
 		.pipe($.gp.sass(require("sass"))())
 		.pipe($.gp.replace(/@img\//g, "../img/"))
+		.pipe($.gp.replace(/@font\//g, "../font/"))
 		// !.pipe($.gp.webpCss()) -- need to install the plugin gulp-webp-css
 		.pipe($.gp.if($.app.isProd, $.gp.webpcss($.app.webpcss)))
 		.pipe($.gp.if($.app.isProd, $.gp.autoprefixer()))

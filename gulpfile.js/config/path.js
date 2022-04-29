@@ -2,7 +2,7 @@ const path = require("path");
 const rootPath = path.basename(path.resolve());
 
 const pathSrc = "./src";
-const pathDest = rootPath; // ? or "./public";
+const pathDest = "./public"; // ? or rootPath;
 
 module.exports = {
 	root: pathDest,

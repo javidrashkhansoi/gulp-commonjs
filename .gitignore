@@ -1,3 +1,5 @@
-/gulp-start
+/public
 /node_modules
 package-lock.json
+/gulpfile.js/version.json
+/src/templates

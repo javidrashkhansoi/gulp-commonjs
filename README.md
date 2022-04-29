@@ -20,6 +20,7 @@
 {
 	"path-autocomplete.pathMappings": {
 		"@img": "${folder}/src/img",
+		"@font": "${folder}/public/font",
 	}
 }
 ```
@@ -27,6 +28,7 @@
 ```json
 "path-autocomplete.pathMappings": {
 	"@img": "${folder}/src/img",
+	"@font": "${folder}/public/font",
 }
 ```
 #### *Пример использования плагина __Path Autocomplete__*
@@ -41,16 +43,33 @@
 ```
 2. SCSS
 ```scss
+@font-face {
+	font-family: "Some font";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("@font/Some-Font-Bold.woff2") format("woff2");
+}
+
 body {
 	background: url("@img/bg.png") center / cover no-repeat;
 }
 ```
 Получаем на выходе:
 ```scss
+@font-face {
+	font-family: "Some font";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("../font/Some-Font-Bold.woff2") format("woff2");
+}
+
 body {
 	background: url("../img/bg.png") center / cover no-repeat;
 }
 ```
+<strong style="color: #ff0000;">Внимание!</strong> *@font* работает после обработки шрифтов
 
 ## **Как начать использовать сборку?**
 Скачать [архив](https://github.com/javidrashkhansoi/gulp-2022/archive/refs/heads/main.zip) и разархивировать, либо в командной строке написать команду:
@@ -102,7 +121,7 @@ project-name - |
                | -- package.json  -- (Настройки проекта и Gulp)
 ```
 - После команды `npm i` в корне проекта создаются папка *node_modules* и файл *package-lock.json*
-- После команды `npm start` или `npm run build` в корне проекта создаются папка с названием проекта и обработанные файлы внутри этой папки
+- После обработки файлов в корне проекта создаются папка с названием *public* и обработанные файлы внутри этой папки
 - После обработки HTML файла в папке **gulpfile.js** создается файл *version.json*
 
 ## **Как начать сборку в режиме разработчика?**
@@ -140,6 +159,7 @@ gulp font
     - Создается файл с указанным именем в пути назначения
 2. SCSS
     - В начале путей к картинкам `@img/` меняется на `../img/`
+    - В начале путей к шрифтам `@font/` меняется на `../font/`
     - Компилируется в CSS
     - Добавляется суффикс *.min*
     - Создается файл *style.min.css* в пути назначения
