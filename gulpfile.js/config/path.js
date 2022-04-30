@@ -6,6 +6,7 @@ const pathDest = "./public"; // ? or rootPath;
 
 module.exports = {
 	root: pathDest,
+	src: pathSrc,
 
 	// ? HTML
 	html: {

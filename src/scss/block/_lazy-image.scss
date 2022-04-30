@@ -12,14 +12,14 @@
 		border: 4px solid blue;
 		border-top-color: transparent;
 		border-radius: 50%;
-		animation: swiper-preloader-spin 1s infinite linear;
+		animation: lazy-image-preloader-spin 1s infinite linear;
 		transform-origin: 50%;
 		box-sizing: border-box;
 		&_white {
 			border-color: #ffffff;
 			border-top-color: transparent;
 		}
-		@keyframes swiper-preloader-spin {
+		@keyframes lazy-image-preloader-spin {
 			100% {
 				transform: rotate(360deg);
 			}

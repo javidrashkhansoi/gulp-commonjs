@@ -1,84 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="format-detection" content="telephone=no">
-	<!-- <meta name="description" content="Description"> -->
-	<title>Test Page</title>
-	<link rel="stylesheet" href="css/style.min.css">
-	<!-- <link rel="shortcut icon" href="img/favico/favico.svg"> -->
-</head>
+@@include("block/head.html", {
+"description": "Description",
+"title": "Title",
+})
 
 <body>
 	<div class="wrapper">
-		<header class="header">
-			<div class="header__wrapper">
-				<div class="header__container">
-					<a data-da=".class,768,1" data-goto=".class" href="" style="z-index: 62; position: relative;">click</a>
-					<div class="header__row"></div>
-				</div>
-			</div>
-		</header>
-		<main class="main" style="padding-top: 50px;">
-			<div style="width: 600px; height: 300px;" class="lazy__image-ibg lazy-image">
-				<img data-src="@img/images/tree-736885__480.jpg" alt="Lazysection image" width="150" height="50">
-				<div class="lazy-image__preloader"></div>
-			</div>
-			<div data-spollers="768,min" class="div">
-				<div class="item">
-					<div data-spoller class="title">title</div>
-					<div class="text">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi nam placeat perspiciatis repellat earum
-						corporis quisquam libero, debitis odit ratione iste laborum blanditiis corrupti sequi obcaecati tempore amet
-						dolore rem!
-					</div>
-				</div>
-				<div class="item">
-					<div data-spoller class="title">title</div>
-					<div class="text">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi nam placeat perspiciatis repellat earum
-						corporis quisquam libero, debitis odit ratione iste laborum blanditiis corrupti sequi obcaecati tempore amet
-						dolore rem!
-					</div>
-				</div>
-			</div>
-			<div class="swiper" style="height: 50px;">
-				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper">
-					<!-- Slides -->
-					<div class="swiper-slide">Slide 1</div>
-					<div class="swiper-slide">Slide 2</div>
-					<div class="swiper-slide">Slide 3</div>
-					...
-				</div>
-				<!-- If we need pagination -->
-				<div class="swiper-pagination"></div>
-
-				<!-- If we need navigation buttons -->
-				<div id="left" class="swiper-button-prev"></div>
-				<div id="right" class="swiper-button-next"></div>
-
-				<!-- If we need scrollbar -->
-				<div class="swiper-scrollbar"></div>
-			</div>
-			<form action="#" id="form">
-				<input type="text" placeholder="he" class="number req">
-				<button type="submit">sub</button>
-			</form>
-			<div class="lock-padding"></div>
-			<div class="nav-header"></div>
+		@@include("block/header.html")
+		<main class="main">
+			
 		</main>
-		<footer class="footer">
-			<div class="footer__container">
-				<div class="class">class</div>
-			</div>
-		</footer>
+		@@include("block/footer.html")
 	</div>
-	<!-- <script src="js/swiper.min.js"></script> -->
-	<!-- <script src="js/da.min.js"></script> -->
 	<script src="js/script.min.js"></script>
 </body>
 

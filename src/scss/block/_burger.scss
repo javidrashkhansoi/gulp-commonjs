@@ -129,7 +129,7 @@
 	// .nav-header__link
 	&__link {
 		font-size: 18px;
-		line-height: math.div(22, 18);
+		line-height: prc(22, 18);
 		color: #fff;
 		@media (any-hover: hover) {
 			transition: color 0.25s;

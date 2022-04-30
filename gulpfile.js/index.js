@@ -5,6 +5,7 @@ global.$ = {
 	gulp: require("gulp"),
 	gp: require("gulp-load-plugins")(),
 	browserSync: require("browser-sync").create(),
+	del: require("del"),
 
 	// ? Configurations
 	path: require("./config/path"),
@@ -26,7 +27,7 @@ const watcher = () => {
 
 const build = $.gulp.series(
 	task.clear,
-	$.gulp.parallel(task.html, task.scss, task.js, task.img, task.font,),
+	$.gulp.parallel(task.html, task.scss, task.js, task.img,),
 );
 
 const dev = $.gulp.series(
@@ -39,7 +40,7 @@ exports.html = task.html;
 exports.scss = task.scss;
 exports.js = task.js;
 exports.img = task.img;
-exports.font = task.font;
+exports.font = $.gulp.series(task.clearfonts, task.font, task.fontface,);
 
 // ? Build
 exports.default = $.app.isProd ? build : dev;

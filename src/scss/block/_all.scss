@@ -17,7 +17,8 @@ body {
 [class*="-ibg"] {
 	position: relative;
 	overflow: hidden;
-	img {
+	img,
+	source {
 		position: absolute;
 		top: 0;
 		left: 0;

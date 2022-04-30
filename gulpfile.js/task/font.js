@@ -20,7 +20,7 @@ const font = () => {
 		.pipe($.gulp.dest($.path.font.dest))
 		.pipe($.gulp.src($.path.font.woff))
 		.pipe($.gp.newer($.path.font.dest))
-		.pipe($.gulp.dest($.path.font.dest))
+		.pipe($.gulp.dest($.path.font.dest));
 };
 
 module.exports = font;
