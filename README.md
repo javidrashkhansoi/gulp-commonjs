@@ -296,6 +296,7 @@ gulp img
 |del|[npm][60]|[git][61]|-|
 |require-dir|[npm][62]|[git][63]|-|
 |sass|[npm][64]|[git][65]|-|
+|swiper|[npm][72]|[git][73]|[swiperjs.com][74]|
 |webp-converter|[npm][66]|[git][67]|-|
 |webpack-stream|[npm][68]|[git][69]|-|
 
@@ -370,3 +371,6 @@ gulp img
 [69]: https://github.com/shama/webpack-stream
 [70]: https://www.npmjs.com/package/gulp-svg2ttf
 [71]: https://github.com/nfroidure/gulp-svg2ttf
+[72]: https://www.npmjs.com/package/swiper
+[73]: https://github.com/nolimits4web/Swiper
+[74]: https://swiperjs.com/

@@ -1,13 +1,12 @@
-const form = document.getElementById("form");
-form.addEventListener("submit", formSend);
+import { variables as $ } from "../variables";
 
-function formSend(event) {
+export function formSend(event) {
 	event.preventDefault();
 	let error = formValidate(form);
 	const errorInput = document.querySelector("input.error");
 	if (errorInput) {
 		errorInput.focus();
-		const goToBlockPosition = errorInput.getBoundingClientRect().top + window.scrollY - document.querySelector("header").offsetHeight;
+		const goToBlockPosition = errorInput.getBoundingClientRect().top + window.scrollY - $.headerWrapper.offsetHeight;
 		window.scrollTo({
 			top: goToBlockPosition,
 			behavior: "smooth",

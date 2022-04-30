@@ -6,6 +6,8 @@ import { headerObserver } from "./module/header-observer";
 import { lazyImageObserver } from "./module/lazy-images";
 import { isWebp } from "./module/iswebp";
 import { DynamicAdapt } from "./module/da";
+import { spoller } from "./module/spoller"
+import { formSend } from "./module/form";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -55,6 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ? Does the browser support WEBP
 	isWebp();
 
+	// ? Moving blocks depending on the media query
 	const da = new DynamicAdapt("max");
 	da.init();
+
+	// ? Spoiler, or an accordion that also works with media queries
+	spoller(1000);
+
+	$.form.addEventListener("submit", formSend);
 });

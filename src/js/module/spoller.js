@@ -1,14 +1,15 @@
-"use strict";
+import { variables as $ } from "../variables";
 
-const spollersArray = document.querySelectorAll("[data-spollers]");
-if (spollersArray.length) {
-	const spollersRegular = Array.from(spollersArray).filter(item => {
+import { slideDown, slideUp, slideToggle } from "./hide-show";
+
+export function spoller(duration) {
+	const spollersRegular = Array.from($.spollers).filter(item => {
 		return !item.dataset.spollers.split(",")[0];
 	});
 	if (spollersRegular.length) {
 		initSpollers(spollersRegular);
 	}
-	const spollersMedia = Array.from(spollersArray).filter(item => {
+	const spollersMedia = Array.from($.spollers).filter(item => {
 		return item.dataset.spollers.split(",")[0];
 	});
 	if (spollersMedia.length) {
@@ -83,7 +84,7 @@ if (spollersArray.length) {
 					hideSpollersBody(spollersBlock);
 				}
 				spollerTitle.classList.toggle("active");
-				slideToggle(spollerTitle.nextElementSibling, 250);
+				slideToggle(spollerTitle.nextElementSibling, duration);
 			}
 			event.preventDefault();
 		}
@@ -92,71 +93,7 @@ if (spollersArray.length) {
 		const spollerActiveTitle = spollersBlock.querySelector("[data-spoller].active");
 		if (spollerActiveTitle) {
 			spollerActiveTitle.classList.remove("active");
-			slideUp(spollerActiveTitle.nextElementSibling, 250);
+			slideUp(spollerActiveTitle.nextElementSibling, duration);
 		}
-	}
-}
-function slideUp(target, duration = 500) {
-	if (!target.classList.contains("slide")) {
-		target.classList.add("slide");
-		target.style.transitionProperty = "height, margin, padding";
-		target.style.transitionDuration = `${duration}ms`;
-		target.style.height = `${target.offsetHeight}px`;
-		target.offsetHeight;
-		target.style.overflow = "hidden";
-		target.style.height = 0;
-		target.style.paddingTop = 0;
-		target.style.paddingBottom = 0;
-		target.style.marginTop = 0;
-		target.style.marginBottom = 0;
-		window.setTimeout(() => {
-			target.hidden = true;
-			target.style.removeProperty("height");
-			target.style.removeProperty("padding-top");
-			target.style.removeProperty("padding-bottom");
-			target.style.removeProperty("margin-top");
-			target.style.removeProperty("margin-bottom");
-			target.style.removeProperty("overflow");
-			target.style.removeProperty("transition-duration");
-			target.style.removeProperty("transition-property");
-			target.classList.remove("slide");
-		}, duration);
-	}
-}
-function slideDown(target, duration = 500) {
-	if (!target.classList.contains("slide")) {
-		target.classList.add("slide");
-		if (target.hidden) {
-			target.hidden = false;
-		}
-		let height = target.offsetHeight;
-		target.style.overflow = "hidden";
-		target.style.height = 0;
-		target.style.paddingTop = 0;
-		target.style.paddingBottom = 0;
-		target.style.marginTop = 0;
-		target.style.marginBottom = 0;
-		target.offsetHeight;
-		target.style.transitionProperty = "height, margin, padding";
-		target.style.transitionDuration = `${duration}ms`;
-		target.style.height = `${height}px`;
-		target.style.removeProperty("padding-top");
-		target.style.removeProperty("padding-bottom");
-		target.style.removeProperty("margin-top");
-		target.style.removeProperty("margin-bottom");
-		window.setTimeout(() => {
-			target.style.removeProperty("height");
-			target.style.removeProperty("overflow");
-			target.style.removeProperty("transition-duration");
-			target.style.removeProperty("transition-property");
-			target.classList.remove("slide");
-		}, duration);
-	}
-}
-function slideToggle(target, duration = 500) {
-	if (target.hidden) {
-		return slideDown(target, duration);
-	} else {
-		return slideUp(target, duration);
 	}
 }

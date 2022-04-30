@@ -9,9 +9,11 @@ export const variables = {
 	headerRow: document.querySelector(".header__row"),
 	burger: document.querySelector(".burger"),
 	navHeader: document.querySelector(".nav-header"),
+	form: document.getElementById("form"),
 
 	lockPaddingItems: document.querySelectorAll(".lock-padding"),
 	
 	lazyImages: document.querySelectorAll(".lazy-image"),
 
+	spollers: document.querySelectorAll("[data-spollers]"),
 }
