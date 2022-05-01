@@ -4,7 +4,7 @@
 
 :pray: __Благодарности *[Евгению Андриканичу](https://www.youtube.com/c/FreelancerLifeStyle/featured)* и *[Сергею Микову](https://www.youtube.com/c/CodeQuestRu/featured)*__
 
-## **Что должен быть установлен на компьютере изначально?**
+## **Что должно быть установлено на компьютере изначально?**
 1. Програмная платформа [Node.js](https://nodejs.org/en/)
 2. Утилита командной строки для *Gulp* [gulp-cli](https://www.npmjs.com/package/gulp-cli)
 3. Система управления версиями [Git](https://git-scm.com/)
