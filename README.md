@@ -71,7 +71,7 @@ body {
 	background: url("../img/bg.webp") center / cover no-repeat;
 }
 ```
-**Внимание!** `@font` работает после обработки шрифтов
+:bangbang: **Внимание!** `@font` работает после обработки шрифтов
 
 ## **Как начать использовать сборку?**
 Скачать [архив](https://github.com/javidrashkhansoi/gulp-2022/archive/refs/heads/main.zip) и разархивировать, либо в командной строке написать команду:
