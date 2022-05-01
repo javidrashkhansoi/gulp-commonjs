@@ -20,17 +20,17 @@
 **Настройка:**
 ```json
 {
-	"path-autocomplete.pathMappings": {
-		"@img": "${folder}/src/img",
-		"@font": "${folder}/public/font",
-	}
+  "path-autocomplete.pathMappings": {
+    "@img": "${folder}/src/img",
+    "@font": "${folder}/public/font",
+  }
 }
 ```
 Если файл не пустой, пишем только код настройки (без фигурных скобок на первой и последней строке):
 ```json
 "path-autocomplete.pathMappings": {
-	"@img": "${folder}/src/img",
-	"@font": "${folder}/public/font",
+  "@img": "${folder}/src/img",
+  "@font": "${folder}/public/font",
 }
 ```
 #### *Пример использования плагина __Path Autocomplete__*
@@ -46,29 +46,29 @@
 2. SCSS
 ```scss
 @font-face {
-	font-family: "Some font";
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url("@font/Some-Font-Bold.woff2") format("woff2");
+  font-family: "Some font";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("@font/Some-Font-Bold.woff2") format("woff2");
 }
 
 body {
-	background: url("@img/bg.png") center / cover no-repeat;
+  background: url("@img/bg.png") center / cover no-repeat;
 }
 ```
 Получаем на выходе:
 ```scss
 @font-face {
-	font-family: "Some font";
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url("../font/Some-Font-Bold.woff2") format("woff2");
+  font-family: "Some font";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../font/Some-Font-Bold.woff2") format("woff2");
 }
 
 .webp body {
-	background: url("../img/bg.webp") center / cover no-repeat;
+  background: url("../img/bg.webp") center / cover no-repeat;
 }
 ```
 :bangbang: **Внимание!** `@font` работает после обработки шрифтов
@@ -224,16 +224,16 @@ npm run build
 Поддержка браузером _.webp_ изображений определяется следующим JavaScript кодом:
 ```js
 function testWebp(cb) {
-	const webp = new Image();
-	webp.onload = webp.onerror = function () {
-		cb(webp.height == 2);
-	};
-	webp.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+  const webp = new Image();
+  webp.onload = webp.onerror = function () {
+    cb(webp.height == 2);
+  };
+  webp.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
 }
 
 testWebp(function (support) {
-	const isWebp = support === true ? "webp" : "no-webp";
-	document.documentElement.classList.add(isWebp);
+  const isWebp = support === true ? "webp" : "no-webp";
+  document.documentElement.classList.add(isWebp);
 });
 ```
 Если браузер поддерживает формат *.webp*, к тегу `<html>` добавится класс *webp*, а если нет, то класс *no-webp*
@@ -401,18 +401,18 @@ gulp img
 1. HTML
 ```html
 <div class="lazy-image">
-	<img data-src="@img/image.png" alt="Section image" width="500" height="400">
-	<div class="lazy-image__preloader"></div>
+  <img data-src="@img/image.png" alt="Section image" width="500" height="400">
+  <div class="lazy-image__preloader"></div>
 </div>
 ```
 Получаем на выходе:
 ```html
 <div class="lazy-image">
-	<picture>
-		<source srcset="img/1x1.webp" data-srcset="img/image.webp" type="image/webp">
-		<img src="img/1x1.png" data-src="img/image.png" alt="Section image" width="500" height="400">
-	</picture>
-	<div class="lazy-image__preloader"></div>
+  <picture>
+    <source srcset="img/1x1.webp" data-srcset="img/image.webp" type="image/webp">
+    <img src="img/1x1.png" data-src="img/image.png" alt="Section image" width="500" height="400">
+  </picture>
+  <div class="lazy-image__preloader"></div>
 </div>
 ```
 2. JavaScript
@@ -421,7 +421,7 @@ import { variables as $ } from "./variables";
 import { lazyImageObserver } from "./module/lazy-images";
 
 $.lazyImages.forEach(lazyImage => {
-	lazyImageObserver.observe(lazyImage);
+  lazyImageObserver.observe(lazyImage);
 });
 ```
 
