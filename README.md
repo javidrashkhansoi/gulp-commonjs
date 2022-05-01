@@ -511,8 +511,6 @@ $.MAX_WIDTH_768PX.addEventListener("change", event => {
 - Подключение скрипта для проверки типа устройства (сенсорный, или нет):
 ```js
 import { isMobile } from "./module/ismobile.min";
-
-isMobile();
 ```
 Если устройство сенсорное к тегу `<body>` добавится класс `touch`, а если нет, то класс `mouse`
 
