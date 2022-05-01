@@ -396,3 +396,112 @@ gulp img
 13. [Обнуляющие стили](src/scss/block/_null.scss)
 14. [Стили](src/scss/block/_swiper.scss) для слайдера *Swiper*
 15. и т.д.
+
+### *Как сделать "ленивую" загрузку изображений?*
+1. HTML
+```html
+<div class="lazy-image">
+	<img data-src="@img/image.png" alt="Section image" width="500" height="400">
+	<div class="lazy-image__preloader"></div>
+</div>
+```
+Получаем на выходе:
+```html
+<div class="lazy-image">
+	<picture>
+		<source srcset="img/1x1.webp" data-srcset="img/image.webp" type="image/webp">
+		<img src="img/1x1.png" data-src="img/image.png" alt="Section image" width="500" height="400">
+	</picture>
+	<div class="lazy-image__preloader"></div>
+</div>
+```
+2. JavaScript
+```js
+import { variables as $ } from "./variables";
+import { lazyImageObserver } from "./module/lazy-images";
+
+$.lazyImages.forEach(lazyImage => {
+	lazyImageObserver.observe(lazyImage);
+});
+```
+
+### *Как сделать "меню-бургер" и плавную прокрутку до "якоря"?*
+1. HTML
+```html
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__wrapper lock-padding">
+				<div class="header__container">
+					<div class="header__row">
+						<div class="header__logo">
+							<div class="logo">I'm Logo</div>
+						</div>
+						<nav class="header__nav nav-header">
+							<ul class="nav-header__list">
+								<li class="nav-header__item">
+									<a data-goto=".block" href="#" class="nav-header__link">Block</a>
+								</li>
+								<li class="nav-header__item">
+									<a data-goto=".section" href="#" class="nav-header__link">Section</a>
+								</li>
+								<li class="nav-header__item">
+									<a data-goto=".footer" href="#" class="nav-header__link">Footer</a>
+								</li>
+							</ul>
+						</nav>
+						<button tabindex="-1" class="header__burger burger" aria-label="Button to open (close) the navigation menu"><span></span></button>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+
+			<!-- Here are other content -->
+
+			<div class="block">I'm here!</div>
+
+			<!-- Here are other content -->
+
+			<section class="section">
+				<h2>I'm here!</h2>
+			</section>
+
+			<!-- Here are other content -->
+
+		</main>
+		<footer class="footer">I'm here!</footer>
+	</div>
+</body>
+```
+2. JavaScript
+```js
+import { variables as $ } from "./variables";
+
+import { burgerAction, burgerClose } from "./module/burger";
+import { goToAction } from "./module/goto";
+
+document.addEventListener("click", event => {
+
+	if (event.target.closest(".burger")) {
+		burgerAction();
+	}
+
+	if (event.target.closest("[data-goto]")) {
+		goToAction(event);
+	}
+
+});
+
+document.addEventListener("keyup", event => {
+	if (event.code === "Escape") {
+		burgerClose();
+	}
+});
+
+$.MAX_WIDTH_768PX.addEventListener("change", event => {
+	if (!event.matches) {
+		burgerClose();
+	}
+});
+```
