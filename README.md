@@ -457,17 +457,17 @@ $.lazyImages.forEach(lazyImage => {
     </header>
     <main>
 
-      <!-- Here are other content -->
+      <!-- Here are other contents -->
 
       <div class="block">I'm here!</div>
 
-      <!-- Here are other content -->
+      <!-- Here are other contents -->
 
       <section class="section">
         <h2>I'm here!</h2>
       </section>
 
-      <!-- Here are other content -->
+      <!-- Here are other contents -->
 
     </main>
     <footer class="footer">I'm here!</footer>
