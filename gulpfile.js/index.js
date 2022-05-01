@@ -41,6 +41,7 @@ exports.scss = task.scss;
 exports.js = task.js;
 exports.img = task.img;
 exports.font = $.gulp.series(task.clearfonts, task.font, task.fontface,);
+exports.clearnode = task.clearnode;
 
 // ? Build
 exports.default = $.app.isProd ? build : dev;
