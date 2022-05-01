@@ -2,7 +2,7 @@
 
 Сборка *Gulp* из разных источников. Тип *commonjs*
 
-:thanks: __Благодарности *[Евгению Андриканичу](https://www.youtube.com/c/FreelancerLifeStyle/featured)* и *[Сергею Микову](https://www.youtube.com/c/CodeQuestRu/featured)*__
+:pray: __Благодарности *[Евгению Андриканичу](https://www.youtube.com/c/FreelancerLifeStyle/featured)* и *[Сергею Микову](https://www.youtube.com/c/CodeQuestRu/featured)*__
 
 ## **Что должен быть установлен на компьютере изначально?**
 1. Програмная платформа [Node.js](https://nodejs.org/en/)
