@@ -379,3 +379,20 @@ gulp img
 [69]: https://github.com/shama/webpack-stream
 [70]: https://www.npmjs.com/package/gulp-svg2ttf
 [71]: https://github.com/nfroidure/gulp-svg2ttf
+
+## **Что еще?**
+1. Слайдер [Swiper](https://swiperjs.com/) загружается вместе с другими пакетами
+2. Библиотека [LeaderLineJS](https://anseki.github.io/leader-line/)
+3. Скрипт "[Динамический адаптив](https://github.com/FreelancerLifeStyle/dynamic_adapt)" Евгения Андриканича
+4. [Скрипт для спойлера/аккордеона](https://www.youtube.com/watch?v=0fg9bZcL1RM&t=1936s) от Евгения Андриканича
+5. [Скрипт](src/js/module/lazy-images.js) и [стили](src/scss/block/_lazy-image.scss) для "ленивой" загрузки изображений
+6. [Скрипт](src/js/module/goto.js) для плавной прокрутки до "якоря"
+7. [Скрипт](src/js/module/burger.js) и [стили](src/scss/block/_burger.scss) для "меню-бургера"
+8. [Скрипт](src/js/module/ismobile.min.js) для проверки типа устройства (сенсорный, или нет)
+9. [Скрипт](src/js/module/iswebp.js) для проверки поддержки браузером *.webp* изображений
+10. [Скрипт](src/js/module/padding-right.js) от защиты перепрыгиваний страницы при `overflow: hidden` для `body`
+11. Всегда прижатый к низу страницы `footer`
+12. [Миксин "adaptive-value"](https://www.youtube.com/watch?v=eaOAY0vIB4U) от Евгения Андриканича
+13. [Обнуляющие стили](src/scss/block/_null.scss)
+14. [Стили](src/scss/block/_swiper.scss) для слайдера *Swiper*
+15. и т.д.
