@@ -236,7 +236,7 @@ testWebp(function (support) {
   document.documentElement.classList.add(isWebp);
 });
 ```
-Если браузер поддерживает формат *.webp*, к тегу `<html>` добавится класс *webp*, а если нет, то класс *no-webp*
+Если браузер поддерживает формат *.webp*, к тегу `<html>` добавится класс `webp`, а если нет, то класс `no-webp`
 
 ## **Из-за чего могут возникнуть ошибки?**
 - Не дайте проекту название *gulp*
@@ -505,4 +505,20 @@ $.MAX_WIDTH_768PX.addEventListener("change", event => {
     burgerClose();
   }
 });
+```
+
+### *Подключение других скриптов*
+- Подключение скрипта для проверки типа устройства (сенсорный, или нет):
+```js
+import { isMobile } from "./module/ismobile.min";
+
+isMobile();
+```
+Если устройство сенсорное к тегу `<body>` добавится класс `touch`, а если нет, то класс `mouse`
+
+- Подключение скрипта для проверки поддержки браузером *.webp* изображений
+```js
+import { isWebp } from "./module/iswebp";
+
+isWebp();
 ```
