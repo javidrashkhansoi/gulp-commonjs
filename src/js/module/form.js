@@ -60,7 +60,7 @@ function emailTest(input) {
 }
 
 function numberTest(input) {
-	return !/^(0|(\+994([\- ])?)|(994([\- ])?))?([1-9]{2})([\- ])?(\d{3})([\- ])?(\d{2})([\- ])?(\d{2})$/.test(input.value);
+	return !/^(0|(\+994([\- ])?)|(994([\- ])?))?([0-9]{2})([\- ])?(\d{3})([\- ])?(\d{2})([\- ])?(\d{2})$/.test(input.value);
 }
 
 function nameTest(input) {
