@@ -45,6 +45,7 @@
     "gulp-size": "^4.0.1",
     "gulp-svg2ttf": "^2.0.1",
     "gulp-ttf2woff2": "^4.0.1",
+		"gulp-uglify": "^3.0.2",
     "gulp-version-number": "^0.2.4",
     "gulp-webp": "^4.0.1",
     "gulp-webp-html-nosvg": "^1.0.9",

@@ -11,5 +11,3 @@ export function burgerAction(action = "toggle") {
 export function burgerClose() {
 	if ($.burger.classList.contains("active")) burgerAction("remove");
 }
-
-

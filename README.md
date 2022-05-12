@@ -97,7 +97,6 @@ project-name - |
                                   | - config  - | (Конфигурационные файлы)
                                                 | -- app.js          -- (Настройки разных плагинов)
                                                 | -- path.js         -- (Настройки путей)
-                                  | - data    - (JSON файлы для подключения в разметку)
                                   | - task    - | (Файлы задач)
                                                 | -- clear.js        -- (Задача для очистки пути назначения (кроме шрифтов))
                                                 | -- clearfonts.js   -- (Задача для удаления папки назначения шрифтов и файла _font-face.scss)
@@ -136,7 +135,7 @@ project-name - |
 npm start
 ```
 ### *Что происходит в режиме разработки?*
-1. Очищается путь назначения файлов (если он есть), кроме шрифтов
+1. Очищается путь назначения файлов (если он есть), кроме папок *font*, *.git* и файлов *.gitignore*, *README.md*
 2. Обрабатываются файлы HTML, SCSS, JavaScript, изображения
 3. Начинается отслежка файлов (кроме шрифтов)
 4. Открывается браузер и обновляется при каждом изменении в файлах (после сохранения изменений)
@@ -200,6 +199,7 @@ npm run build
     - В терминале показывается размер после сжатия файла
     - К тегам `<img>` добавляется атрибут `src="img/1x1.png"`, если у них есть атрибут `data-src`
     - К тегам `<source>` добавляется атрибут `srcset="img/1x1.webp"`, если у них есть атрибут `data-srcset`
+    - К пустым атрибутам `href` присваивается значение `#`
     - К тегам `<a>` добавляется атрибут `tabindex="-1"`
     - К путям стилей и скриптов добавляется версии
 2. SCSS
@@ -212,8 +212,10 @@ npm run build
     - Сжимается файл
     - В терминале показывается размер после сжатия файла
 3. JavaScript
+    - В терминале показывается размер до сжатия файла
     - *Babel* делает код кроссбраузерным
     - Сжимается файл
+    - В терминале показывается размер после сжатия файла
 4. Изображения
     - Конвертируются в формат `.webp`
     - Вставляются в путь назначения
@@ -244,6 +246,15 @@ testWebp(function (support) {
 - Не используйте пробелы в названиях
 - Не используйте в названиях символы *#*, *!*, *$*, *^*, *&* и т.п.
 - Тег `<img>` пишите в одну строку
+- При возникновении ошибки **basicShorthandReplace is not defined** переходим по пути *node_modules\shrthnd\lib\shorthanders\margin-padding.js*,
+открываем файл *margin-padding.js*, находим 19-ую строку и коментируем ее:
+```js
+// return basicShorthandReplace(shorthand, declarations);
+```
+После нее добавляем код:
+```js
+return declarations[propertyName + '-top'].value + ' ' + declarations[propertyName + '-right'].value + ' ' + declarations[propertyName + '-bottom'].value + ' ' + declarations[propertyName + '-left'].value;
+```
 
 ## **Какие файлы можно удалять после завершения проекта?**
 После завершения проекта можно удалять папку *node_modules* и файл *package-lock.json*. Делается командой:
@@ -294,6 +305,7 @@ gulp img
 |gulp-size|[npm][38]|[git][39]|-|
 |gulp-svg2ttf|[npm][70]|[git][71]|-|
 |gulp-ttf2woff2|[npm][40]|[git][41]|-|
+|gulp-uglify|[npm][72]|[git][73]|-|
 |gulp-version-number|[npm][42]|[git][43]|-|
 |gulp-webp|[npm][44]|[git][45]|-|
 |gulp-webp-html-nosvg|[npm][46]|[git][47]|-|
@@ -379,6 +391,8 @@ gulp img
 [69]: https://github.com/shama/webpack-stream
 [70]: https://www.npmjs.com/package/gulp-svg2ttf
 [71]: https://github.com/nfroidure/gulp-svg2ttf
+[72]: https://www.npmjs.com/package/gulp-uglify
+[73]: https://github.com/terinjokes/gulp-uglify
 
 ## **Что еще?**
 1. Слайдер [Swiper](https://swiperjs.com/) загружается вместе с другими пакетами

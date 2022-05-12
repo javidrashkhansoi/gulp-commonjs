@@ -1,16 +1,9 @@
-import { variables as $ } from "../variables";
-
-export function formSend(event) {
+export function formSend(event, form) {
 	event.preventDefault();
 	let error = formValidate(form);
 	const errorInput = document.querySelector("input.error");
 	if (errorInput) {
 		errorInput.focus();
-		const goToBlockPosition = errorInput.getBoundingClientRect().top + window.scrollY - $.headerWrapper.offsetHeight;
-		window.scrollTo({
-			top: goToBlockPosition,
-			behavior: "smooth",
-		});
 	}
 	if (error === 0) {
 		form.reset();
@@ -20,7 +13,7 @@ export function formSend(event) {
 
 function formValidate(form) {
 	let error = 0;
-	let formReq = document.querySelectorAll(".req");
+	let formReq = form.querySelectorAll(".req");
 	for (let index = 0; index < formReq.length; index++) {
 		const input = formReq[index];
 		formRemoveError(input);

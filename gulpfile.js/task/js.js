@@ -9,9 +9,15 @@ const js = () => {
 				message: error.message,
 			})),
 		}))
-		.pipe($.gp.if($.app.isProd, $.gp.babel()))
 		.pipe(webpack($.app.webpack))
-		// ! .pipe($.gp.uglify()) need to install the plugin gulp-uglify
+		.pipe($.gp.if($.app.isProd, $.gp.size({
+			title: "Before js compressed",
+		})))
+		.pipe($.gp.if($.app.isProd, $.gp.babel()))
+		.pipe($.gp.if($.app.isProd, $.gp.uglify()))
+		.pipe($.gp.if($.app.isProd, $.gp.size({
+			title: "After js compressed",
+		})))
 		.pipe($.gulp.dest($.path.js.dest/*, { sourcemaps: $.app.isDev }*/));
 };
 
