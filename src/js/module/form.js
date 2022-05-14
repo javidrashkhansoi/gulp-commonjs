@@ -1,7 +1,7 @@
 export function formSend(event, form) {
 	event.preventDefault();
 	let error = formValidate(form);
-	const errorInput = document.querySelector("input.error");
+	const errorInput = form.querySelector("input.error");
 	if (errorInput) {
 		errorInput.focus();
 	}
