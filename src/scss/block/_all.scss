@@ -10,7 +10,7 @@ body {
 	overflow: hidden;
 }
 [class*="__container"] {
-	max-width: $maxWidthContainer + px;
+	max-width: $container + px;
 	margin: 0 auto;
 	padding: 0 15px;
 }

@@ -1,18 +1,59 @@
-@mixin adaptive-value($property, $startSize, $minSize, $type) {
-	$addSize: $startSize - $minSize;
+@mixin adaptive-value($property, $start, $finish, $type) {
+	$addSize: $start - $finish;
 	@if $type == 1 {
-		#{$property}: $startSize + px;
-		@media (max-width: #{$maxWidthContainer + px}) {
-			#{$property}: calc(
-				#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidthContainer - $minWidth})
-			);
+		#{$property}: $start + px;
+		@media (max-width: #{$container + px}) {
+			#{$property}: calc(#{$finish + px} + #{$addSize} * ((100vw - #{$mobile + px}) / #{$container - $mobile}));
 		}
 	} @else if $type == 2 {
-		#{$property}: $startSize + px;
-		@media (min-width: #{$maxWidthContainer + px}) {
-			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+		#{$property}: $start + px;
+		@media (min-width: #{$container + px}) {
+			#{$property}: calc(#{$finish + px} + #{$addSize} * ((100vw - #{$mobile + px}) / #{$layout - $mobile}));
 		}
 	} @else {
-		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+		#{$property}: calc(#{$finish + px} + #{$addSize} * ((100vw - #{$mobile + px}) / #{$layout - $mobile}));
 	}
+}
+
+@mixin responsive-property($property, $big, $small, $media: strict, $container: $container, $mobile: $mobile) {
+	@if $container < $mobile {
+		@error Размер контейнера меньше чем размер мобильного устройства;
+	} @else if $container == $mobile {
+		@error Размер контейнера равен размеру мобильного устройства;
+	}
+
+	$difference: $big - $small;
+	$viewport: $container - $mobile;
+	$calc: "#{$small + px} + #{$difference} * ((100vw - #{$mobile + px}) / #{$viewport})";
+	$value: "";
+
+	@if $media == always {
+		@if $media == always {
+			$value: calc(#{$calc});
+		}
+	} @else {
+		$max: max(#{$big + px}, #{$calc});
+		$min: min(#{$big + px}, #{$calc});
+		@if $big > $small {
+			@if $media == strict {
+				$value: clamp(#{$small + px}, #{$calc}, #{$big + px});
+			} @else if $media == max {
+				$value: #{$min};
+			} @else if $media == min {
+				$value: #{$max};
+			}
+		} @else if $small > $big {
+			@if $media == strict {
+				$value: min(#{$small + px}, max(#{$calc}, #{$big + px}));
+			} @else if $media == max {
+				$value: #{$max};
+			} @else if $media == min {
+				$value: #{$min};
+			}
+		} @else {
+			@error Значения равны друг другу;
+		}
+	}
+
+	#{$property}: #{$value};
 }
