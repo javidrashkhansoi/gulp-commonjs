@@ -8,28 +8,24 @@ module.exports = {
 	root: pathDest,
 	src: pathSrc,
 
-	// ? HTML
 	html: {
 		src: `${pathSrc}/html/*.html`,
 		watch: `${pathSrc}/html/**/*.html`,
 		dest: pathDest,
 	},
 	
-	// ? SCSS
 	scss: {
 		src: `${pathSrc}/scss/style.scss`,
 		watch: `${pathSrc}/scss/**/*.scss`,
 		dest: `${pathDest}/css`,
 	},
 
-	// ? JS
 	js: {
 		src: `${pathSrc}/js/script.js`,
 		watch: `${pathSrc}/js/**/*.js`,
 		dest: `${pathDest}/js`,
 	},
 
-	// ? IMG
 	img: {
 		src: `${pathSrc}/img/**/*.{png,jpg,jpeg,gif,webp}`,
 		svg: `${pathSrc}/img/**/*.svg`,
@@ -37,7 +33,6 @@ module.exports = {
 		dest: `${pathDest}/img`,
 	},
 
-	// ? FONT
 	font: {
 		src: `${pathSrc}/font/*.{eot,otf,otc,ttc}`,
 		srcDest: `${pathSrc}/font`,

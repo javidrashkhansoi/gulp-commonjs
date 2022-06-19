@@ -1,8 +1,7 @@
 const webpack = require("webpack-stream");
 
-// ? JS Task
 const js = () => {
-	return $.gulp.src($.path.js.src/*, { sourcemaps: $.app.isDev }*/)
+	return $.gulp.src($.path.js.src)
 		.pipe($.gp.plumber({
 			errorHandler: $.gp.notify.onError(error => ({
 				title: "JS",
@@ -10,15 +9,9 @@ const js = () => {
 			})),
 		}))
 		.pipe(webpack($.app.webpack))
-		.pipe($.gp.if($.app.isProd, $.gp.size({
-			title: "Before js compressed",
-		})))
 		.pipe($.gp.if($.app.isProd, $.gp.babel()))
 		.pipe($.gp.if($.app.isProd, $.gp.uglify()))
-		.pipe($.gp.if($.app.isProd, $.gp.size({
-			title: "After js compressed",
-		})))
-		.pipe($.gulp.dest($.path.js.dest/*, { sourcemaps: $.app.isDev }*/));
+		.pipe($.gulp.dest($.path.js.dest));
 };
 
 module.exports = js

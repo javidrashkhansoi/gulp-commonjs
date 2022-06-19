@@ -1,6 +1,5 @@
-// ? Delete root path
 const clear = () => {
-	return $.del([`${$.path.root}/**`, `!${$.path.root}/{font,.git,.gitignore,README.md}`]);
+	return $.del([`${$.path.root}/**`, `!${$.path.root}/{font/**,.git/**,.gitignore,README.md}`]);
 };
 
 module.exports = clear;

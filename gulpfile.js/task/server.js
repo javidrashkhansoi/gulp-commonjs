@@ -1,4 +1,3 @@
-// ? Server
 const server = () => {
 	$.browserSync.init({
 		server: {

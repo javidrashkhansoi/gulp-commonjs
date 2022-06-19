@@ -1,4 +1,3 @@
-// ? FONT Task
 const font = () => {
 	return $.gulp.src($.path.font.src)
 		.pipe($.gp.plumber({

@@ -1,4 +1,3 @@
-// ? IMG Task
 const img = () => {
 	return $.gulp.src($.path.img.src)
 		.pipe($.gp.plumber({

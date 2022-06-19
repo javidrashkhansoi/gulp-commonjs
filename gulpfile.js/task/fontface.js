@@ -1,6 +1,5 @@
 const fs = require("fs");
 
-// ? Create _fonts.scss file
 const fontStyle = () => {
 	let fontsFile = `${$.path.src}/scss/block/_font-face.scss`;
 	fs.readdir(`${$.path.font.dest}/`, function (error, fontsFiles) {

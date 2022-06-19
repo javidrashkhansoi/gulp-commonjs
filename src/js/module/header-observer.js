@@ -7,6 +7,6 @@ export const headerObserver = new IntersectionObserver(entries => {
 });
 
 function headerObserverAction(action = "add") {
-	$.headerWrapper.classList[action]("active");
-	$.headerRow.classList[action]("active");
+	if ($.headerWrapper) $.headerWrapper.classList[action]("active");
+	if ($.headerRow) $.headerRow.classList[action]("active");
 }

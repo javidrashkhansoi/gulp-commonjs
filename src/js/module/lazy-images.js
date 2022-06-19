@@ -1,4 +1,6 @@
-export const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+import { variables as $ } from "../variables";
+
+const lazyImageObserver = new IntersectionObserver((entries, observer) => {
 	entries.forEach(entry => {
 		const lazyImageBlock = entry.target;
 		const lazyImageImg = lazyImageBlock.querySelector("img");
@@ -6,26 +8,39 @@ export const lazyImageObserver = new IntersectionObserver((entries, observer) =>
 		const lazyImagePreloader = lazyImageBlock.querySelector(".lazy-image__preloader");
 
 		if (entry.isIntersecting) {
-			lazyImageImg.src = lazyImageImg.dataset.src;
-			lazyImageImg.removeAttribute("data-src");
+			if (lazyImageImg.hasAttribute("data-src")) {
+				lazyImageImg.src = lazyImageImg.dataset.src;
+				lazyImageImg.removeAttribute("data-src");
+			}
 
 			if (lazyImageSourceTags.length) {
 				lazyImageSourceTags.forEach(lazyImageSource => {
-					lazyImageSource.srcset = lazyImageSource.dataset.srcset;
-					lazyImageSource.removeAttribute("data-srcset");
+					if (lazyImageSource.hasAttribute("data-srcset")) {
+						lazyImageSource.srcset = lazyImageSource.dataset.srcset;
+						lazyImageSource.removeAttribute("data-srcset");
+					}
 				});
 			}
 
-			const lazyImagePreloaderAnimationRemove = setInterval(() => {
-				if (lazyImageImg.complete) {
-					lazyImageBlock.classList.remove("lazy-image");
-					lazyImagePreloader.remove();
-					clearInterval(lazyImagePreloaderAnimationRemove);
-				}
-			}, 100);
+			if (lazyImagePreloader) {
+				const lazyImagePreloaderAnimationRemove = setInterval(() => {
+					if (lazyImageImg.complete) {
+						lazyImageBlock.classList.remove("lazy-image");
+						lazyImagePreloader.remove();
+						clearInterval(lazyImagePreloaderAnimationRemove);
+					}
+				}, 100);
+			}
 
 			observer.unobserve(lazyImageBlock);
 		}
 	});
 });
 
+export function lazyImage() {
+	if ($.lazyImages.length) {
+		$.lazyImages.forEach(image => {
+			lazyImageObserver.observe(image);
+		});
+	}
+}
