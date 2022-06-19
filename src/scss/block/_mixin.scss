@@ -14,3 +14,11 @@
 		#{$property}: calc(#{$finish + px} + #{$addSize} * ((100vw - #{$mobile + px}) / #{$layout - $mobile}));
 	}
 }
+
+@mixin any-hover {
+	@media (any-hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
