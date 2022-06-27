@@ -9,7 +9,7 @@ export const variables = {
 	headerRow: document.querySelector(".header__row"),
 	burger: document.querySelector(".burger"),
 	navHeader: document.querySelector(".nav-header"),
-	form: document.getElementById("form"),
+	forms: document.forms,
 
 	lockPaddingItems: document.querySelectorAll(".lock-padding"),
 	
