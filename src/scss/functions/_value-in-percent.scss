@@ -1,0 +1,3 @@
+@function value-in-percent($pxOne, $pxTwo) {
+	@return math.div($pxOne, $pxTwo) * 100%;
+}

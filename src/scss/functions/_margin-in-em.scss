@@ -1,0 +1,3 @@
+@function margin-in-em($pxMargin, $pxFontSize) {
+	@return math.div($pxMargin, $pxFontSize) * 1em;
+}

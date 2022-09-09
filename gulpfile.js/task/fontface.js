@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const fontStyle = () => {
-	let fontsFile = `${$.path.src}/scss/block/_font-face.scss`;
+	let fontsFile = `${$.path.src}/scss/fonts/_font-faces.scss`;
 	fs.readdir(`${$.path.font.dest}/`, function (error, fontsFiles) {
 		if (fontsFiles) {
 			if (!fs.existsSync(fontsFile)) {
@@ -39,7 +39,7 @@ const fontStyle = () => {
 					}
 				}
 			} else {
-				console.log("Файл src/scss/block/_fonts.scss уже существует. Для обновления файла нужно его удалить!");
+				console.log("Файл src/scss/fonts/_fonts.scss уже существует. Для обновления файла нужно его удалить!");
 			}
 		}
 	});
