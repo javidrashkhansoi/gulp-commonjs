@@ -1,5 +1,3 @@
-import { variables as $ } from "../variables";
-
 const lazyImageObserver = new IntersectionObserver((entries, observer) => {
 	entries.forEach(entry => {
 		const lazyImageBlock = entry.target;
@@ -37,10 +35,7 @@ const lazyImageObserver = new IntersectionObserver((entries, observer) => {
 	});
 });
 
-export function lazyImage() {
-	if ($.lazyImages.length) {
-		$.lazyImages.forEach(image => {
-			lazyImageObserver.observe(image);
-		});
-	}
-}
+const lazyImages = document.querySelectorAll(".lazy-image");
+lazyImages?.forEach(lazyImage => {
+	lazyImageObserver.observe(lazyImage);
+});

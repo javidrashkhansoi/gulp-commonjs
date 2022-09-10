@@ -1,3 +1,8 @@
-import { click } from "./scripts/click";
-
-document.addEventListener("click", click);
+// ? Events
+// import "./events/events";
+// 
+// ? Libraries
+// import "./libraries/libraries";
+// 
+// ? Modules
+// import "./modules/modules";

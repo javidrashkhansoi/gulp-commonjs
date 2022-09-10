@@ -19,6 +19,8 @@ const isMobile = {
 	}
 };
 
-export function isTouch() {
+function isTouch() {
 	isMobile.any() ? document.body.classList.add("touch") : document.body.classList.add("mouse");
 }
+
+isTouch();

@@ -1,15 +1,15 @@
-import { variables as $ } from "../variables";
+import { slideUp, slideToggle } from "./slide-up-and-down";
 
-import { slideDown, slideUp, slideToggle } from "./hide-show";
+function spoller(duration) {
+	const spollers = document.querySelectorAll("[data-spollers]");
 
-export function spoller(duration) {
-	const spollersRegular = Array.from($.spollers).filter(item => {
+	const spollersRegular = Array.from(spollers).filter(item => {
 		return !item.dataset.spollers.split(",")[0];
 	});
 	if (spollersRegular.length) {
 		initSpollers(spollersRegular);
 	}
-	const spollersMedia = Array.from($.spollers).filter(item => {
+	const spollersMedia = Array.from(spollers).filter(item => {
 		return item.dataset.spollers.split(",")[0];
 	});
 	if (spollersMedia.length) {
@@ -97,3 +97,5 @@ export function spoller(duration) {
 		}
 	}
 }
+
+spoller(300);

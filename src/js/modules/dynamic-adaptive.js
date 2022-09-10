@@ -1,4 +1,4 @@
-export class DynamicAdapt {
+class DynamicAdapt {
   constructor(type) {
     this.type = type;
   }
@@ -140,3 +140,5 @@ export class DynamicAdapt {
     }
   }
 }
+
+new DynamicAdapt("max");
