@@ -50,44 +50,12 @@ npm i
 - Изображения: *.jpg*, *.jpeg*, *.png*, *.webp*, *.svg*, *.ico*, *.gif*
 - Шрифты: *.otf*, *.ttf*, *.eot*, *.otc*, *.ttc*, *.svg*, *.woff*, *.woff2*
 
-### *Какая должна быть структура файлов?*
-```
-project-name - |
-               | - gulpfile.js  - |
-                                  | - config  - | (Конфигурационные файлы)
-                                                | -- app.js          -- (Настройки разных плагинов)
-                                                | -- path.js         -- (Настройки путей)
-                                  | - task    - | (Файлы задач)
-                                                | -- clear.js        -- (Задача для очистки пути назначения (кроме шрифтов))
-                                                | -- clearfonts.js   -- (Задача для удаления папки назначения шрифтов и файла _font-face.scss)
-                                                | -- clearnode.js    -- (Задача для удаления папки node_modules и файла package-lock.json)
-                                                | -- font.js         -- (Задача для обработки шрифтов)
-                                                | -- fontface.js     -- (Задача для подключения шрифтов к стилям)
-                                                | -- html.js         -- (Задача для обработки HTML файлов)
-                                                | -- img.js          -- (Задача для обработки изображений)
-                                                | -- js.js           -- (Задача для обработки JavaScript файлов)
-                                                | -- scss.js         -- (Задача для обработки SCSS файлов)
-                                                | -- server.js       -- (Задача обновления браузера)
-                                  | -- index.js -- (Основной Gulp файл)
-               | - src          - |
-                                  | - font    - | (Файлы шрифтов)
-                                  | - html    - | (HTML файлы)
-                                                | - (Папки для подключаемых разметок)
-                                                | -- index.html
-                                                | -- (Другие основные HTML файлы)
-                                  | - img     - | (Файлы иображений)
-                                  | - js      - | (JavaScript файлы)
-                                                | - (Папки для подключаемых скриптов)
-                                                | -- script.js       -- (Основной JavaScript файл)
-                                  | - scss    - | (SCSS файлы)
-                                                | - (Папки для подключаемых стилей)
-                                                | -- style.scss      -- (основной SCSS файл)
-               | -- package.json  -- (Настройки проекта и Gulp)
-```
+### :bangbang::bangbang::bangbang:
 - После команды `npm i` в корне проекта создаются папка *node_modules* и файл *package-lock.json*
 - После обработки файлов в корне проекта создаются папка с названием *public* (название папки пути назначения по умолчанию) и обработанные файлы внутри этой папки
 - После обработки шрифтов создается файл *_font-faces.scss* по пути **src/scss/fonts/**
 - После обработки HTML файла в папке **gulpfile.js** создается файл *version.json*
+- После команды `gulp zip` в корне проекта создается папка *zip* с **ZIP** архивами исходных и готовых файлов
 
 ## **Как начать сборку в режиме разработчика?**
 Сборка в режиме разработчика начинается командой:
@@ -147,8 +115,8 @@ npm run build
 ```
 
 ### *Что происходит в режиме "production"?*
-1. Очищается путь назначения файлов (если он есть), кроме папок *font*, *.git* и файлов *.gitignore*, *README.md*, *site.webmanifest*, *browserconfig.xml*, *favicon.ico*
-2. Обрабатываются файлы HTML, SCSS, JavaScript, изображения
+1. Очищается путь назначения файлов (если он есть), кроме папок *font*, *.git* и файлов *.gitignore*, *README.md*, *site.webmanifest*, *browserconfig.xml*, *favicon.ico* и папка *zip*
+2. Обрабатываются файлы HTML, SCSS, JavaScript, изображения, по пути *zip/* создается **ZIP** архив исходных и готовых файлов
 
 ### *Что допольнительного происходит с файлами в режиме __"production"__?*
 1. HTML
@@ -179,7 +147,7 @@ npm run build
 - Тег `<img>` пишите в одну строку
 
 ## **Какие файлы можно удалять после завершения проекта?**
-После завершения проекта можно удалять папку *node_modules* и файл *package-lock.json*. Делается командой:
+После завершения проекта можно удалять папки *node_modules*, *zip* и файл *package-lock.json*. Делается командой:
 ```bash
 gulp clearnode
 ```
@@ -200,6 +168,10 @@ gulp js
 Для обработки изображений:
 ```bash
 gulp img
+```
+Для создания ZIP архива:
+```bash
+gulp zip
 ```
 
 ## **Какие пакеты используются?**
@@ -229,6 +201,7 @@ gulp img
 |gulp-version-number|[npm][42]|[git][43]|-|
 |gulp-webp-html-nosvg|[npm][46]|[git][47]|-|
 |gulp-webpcss|[npm][48]|[git][49]|-|
+|gulp-zip|[npm][74]|[git][75]|-|
 |@babel/core|[npm][50]|[git][51]|[babel.dev/docs/en/babel-core][52]|
 |@babel/preset-env|[npm][53]|-|[babel.dev/docs/en/babel-preset-env][54]|
 |@babel/register|[npm][55]|-|[babel.dev/docs/en/babel-register][56]|
@@ -303,3 +276,5 @@ gulp img
 [71]: https://github.com/nfroidure/gulp-svg2ttf
 [72]: https://www.npmjs.com/package/gulp-uglify
 [73]: https://github.com/terinjokes/gulp-uglify
+[74]: https://www.npmjs.com/package/gulp-zip
+[75]: https://github.com/sindresorhus/gulp-zip

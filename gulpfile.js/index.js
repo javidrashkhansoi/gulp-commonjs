@@ -43,7 +43,7 @@ exports.js = task.js;
 exports.img = task.img;
 exports.font = $.gulp.series(task.clearfonts, task.font, task.fontface,);
 exports.zip = $.gulp.series(task.clearzip, task.zipsrc, task.zippublic);
-exports.clearnode = task.clearnode;
+exports.clearnode = $.gulp.series(task.clearnode, task.clearzip);
 
 // ? Build
 exports.default = $.app.isProd ? build : dev;
